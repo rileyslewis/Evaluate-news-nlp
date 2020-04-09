@@ -1,3 +1,5 @@
+const projectData = {};
+
 const dotenv = require('dotenv');
 dotenv.config();
 var path = require('path')
@@ -11,6 +13,13 @@ var textapi = new aylien({
     });
 
 const app = express()
+
+const bodyParser = require('body-parser')
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+const cors = require('cors');
+app.use(cors());
 
 app.use(express.static('dist'))
 
@@ -29,3 +38,19 @@ app.listen(8081, function () {
 app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
+
+app.get('all', sendData);
+
+function sendData (request, response) {
+    response.send(projectData);
+};
+
+app.post('/addContent', addContent);
+
+function addContent (request, response) {
+    const body = request.body;
+    projectData.polarity = body.polarity;
+    projectData.subjectivity = body.subjectivity;
+    projectData.generateText = body.generateText;
+    console.log(projectData);
+};
