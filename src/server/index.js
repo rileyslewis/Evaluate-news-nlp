@@ -39,7 +39,7 @@ app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
 
-app.get('all', sendData);
+app.get('/all', sendData);
 
 function sendData (request, response) {
     response.send(projectData);
