@@ -52,5 +52,7 @@ function addContent (request, response) {
     projectData.polarity = body.polarity;
     projectData.subjectivity = body.subjectivity;
     projectData.generateText = body.generateText;
+    projectData.polarityConfidence = body.polarityConfidence;
+    projectData.subjectivityConfidence = body.subjectivityConfidence;
     console.log(projectData);
 };
