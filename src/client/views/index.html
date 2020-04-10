@@ -2,14 +2,17 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+
         <title>Aylien Sentiment API</title>
+
     </head>
 
     <body>
 
         <header>
             <div class="">
-                Logo
+                Natural Language Processing Project
             </div>
             <div class="">
                 navigation
@@ -19,25 +22,27 @@
         <main>
             <section>
                 <form class="" onsubmit="return Client.handleSubmit(event)">
+                    <h4>Please Input a URL address</h4>
                     <input id="url" type="url" name="url" value="" placeholder="https://www.sample.com/article">
-                    <input type="submit" name="submit" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+                    <input type="submit" class="button" name="submit" value="Submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
                 </form>
             <section>
 
             <section>
-                <strong>Form Results:</strong>
+                <p class="form-result">Form Results:</p>
                 <div id="results">
-                    <div id="polarity"></div>
-                    <div id="subjectivity"></div>
-                    <div id="polarity_confidence"></div>
-                    <div id="subjectivity_confidence"></div>
-                    <div id="link"></div>
+                    <ul>
+                    <li id="polarity"></li>
+                    <li id="subjectivity"></li>
+                    <li id="polarity_confidence"></li>
+                    <li id="subjectivity_confidence"></li>
+                    </ul>
                 </div>
             </section>
         </main>
 
         <footer id="footer">
-            <p>This is a footer</p>
+            <p>NLP Project</p>
         </footer>
         <script>
             // Check that service workers are supported

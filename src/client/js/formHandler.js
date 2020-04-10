@@ -19,7 +19,6 @@ function handleSubmit(event) {
             document.getElementById('subjectivity').innerHTML = res.subjectivity
             document.getElementById('polarity_confidence').innerHTML = res.polarity_confidence
             document.getElementById('subjectivity_confidence').innerHTML = res.subjectivity_confidence
-            document.getElementById('link').innerHTML = res.content
         })
     } else {
         alert("URL not found.")

@@ -48,7 +48,6 @@ app.post('/sentiment', function (req, res) {
             projectData.subjectivity = response.subjectivity;
             projectData.polarity_confidence = response.polarity_confidence;
             projectData.subjectivity_confidence = response.subjectivity_confidence;
-            projectData.content = response.content;
             res.send(projectData);
     //add your code here for manipulating response 
         } else {
