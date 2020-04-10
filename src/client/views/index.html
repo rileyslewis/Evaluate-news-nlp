@@ -19,8 +19,8 @@
         <main>
             <section>
                 <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <input id="content" type="text" name="input" value="" placeholder="Content">
-                    <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+                    <input id="url" type="url" name="url" value="" placeholder="https://www.sample.com/article">
+                    <input type="submit" name="submit" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
                 </form>
             <section>
 
@@ -29,9 +29,9 @@
                 <div id="results">
                     <div id="polarity"></div>
                     <div id="subjectivity"></div>
-                    <div id="content"></div>
                     <div id="polarity_confidence"></div>
                     <div id="subjectivity_confidence"></div>
+                    <div id="link"></div>
                 </div>
             </section>
         </main>

@@ -2,7 +2,7 @@ function handleSubmit(event) {
     event.preventDefault()
 
     const baseUrl = 'http://localhost:8081/sentiment'
-    const url = document.getElementById('content').value
+    const url = document.getElementById('url').value
     if (Client.validUrl(url)) {
         fetch(baseUrl, {
             method: 'POST',
@@ -18,10 +18,10 @@ function handleSubmit(event) {
             document.getElementById('subjectivity').innerHTML = res.subjectivity
             document.getElementById('polarity_confidence').innerHTML = res.polarity_confidence
             document.getElementById('subjectivity_confidence').innerHTML = res.subjectivity_confidence
-            document.getElementById('content').innerHTML = res.content
+            document.getElementById('link').innerHTML = res.content
         })
     } else {
-        return 'URL is not valid, please try again.'
+        alert("URL not found.")
     }
 }
 

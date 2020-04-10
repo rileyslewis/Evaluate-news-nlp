@@ -40,23 +40,19 @@ app.get('/test', function (req, res) {
 })
 
 
-app.get('/sentiment', function (req, res) {
-    const urlHolder = req.body.url
-    textapi.sentiment({
-        url: urlHolder 
-    },
-    function(error, res) {
+app.post('/sentiment', function (req, res) {
+    const urlHolder = req.body.url;
+    textapi.sentiment({ url: urlHolder }, function(error, res) {
         if (error === null) {
-            projectData.polarity = res.polarity
-            projectData.subjectivity = res.subjectivity
-            projectData.polarity_confidence = res.polarity_confidence
-            projectData.subjectivity_confidence = res.subjectivity_confidence
-            projectData.content = res.content
-           res.send(projectData);
+            projectData.polarity = res.polarity;
+            projectData.subjectivity = res.subjectivity;
+            projectData.polarity_confidence = res.polarity_confidence;
+            projectData.subjectivity_confidence = res.subjectivity_confidence;
+            projectData.content = res.content;
+            res.send(projectData);
     //add your code here for manipulating response 
-        }
-        else {
-            res.send(error);
+        } else {
+            console.log(error);
         }
     });
 })
