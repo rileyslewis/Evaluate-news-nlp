@@ -42,13 +42,13 @@ app.get('/test', function (req, res) {
 
 app.post('/sentiment', function (req, res) {
     const urlHolder = req.body.url;
-    textapi.sentiment({ url: urlHolder }, function(error, res) {
+    textapi.sentiment({ url: urlHolder }, function(error, response) {
         if (error === null) {
-            projectData.polarity = res.polarity;
-            projectData.subjectivity = res.subjectivity;
-            projectData.polarity_confidence = res.polarity_confidence;
-            projectData.subjectivity_confidence = res.subjectivity_confidence;
-            projectData.content = res.content;
+            projectData.polarity = response.polarity;
+            projectData.subjectivity = response.subjectivity;
+            projectData.polarity_confidence = response.polarity_confidence;
+            projectData.subjectivity_confidence = response.subjectivity_confidence;
+            projectData.content = response.content;
             res.send(projectData);
     //add your code here for manipulating response 
         } else {
