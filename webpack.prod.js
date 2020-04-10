@@ -9,6 +9,7 @@ const WorkboxPlugin = require('workbox-webpack-plugin');
 module.exports = {
     entry: './src/client/index.js',
     output: {
+        path: path.resolve(__dirname,'dist'),
         libraryTarget: 'var',
         library: 'Client'
     },

@@ -1,4 +1,4 @@
-const projectData = {};
+const projectData = {}
 
 const dotenv = require('dotenv');
 dotenv.config();
@@ -39,20 +39,24 @@ app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
 
-app.get('/all', sendData);
 
-function sendData (request, response) {
-    response.send(projectData);
-};
-
-app.post('/addContent', addContent);
-
-function addContent (request, response) {
-    const body = request.body;
-    projectData.polarity = body.polarity;
-    projectData.subjectivity = body.subjectivity;
-    projectData.generateText = body.generateText;
-    projectData.polarityConfidence = body.polarityConfidence;
-    projectData.subjectivityConfidence = body.subjectivityConfidence;
-    console.log(projectData);
-};
+app.get('/sentiment', function (req, res) {
+    const urlHolder = req.body.url
+    textapi.sentiment({
+        url: urlHolder 
+    },
+    function(error, res) {
+        if (error === null) {
+            projectData.polarity = res.polarity
+            projectData.subjectivity = res.subjectivity
+            projectData.polarity_confidence = res.polarity_confidence
+            projectData.subjectivity_confidence = res.subjectivity_confidence
+            projectData.content = res.content
+           res.send(projectData);
+    //add your code here for manipulating response 
+        }
+        else {
+            res.send(error);
+        }
+    });
+})
